@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "paths": {
+            "@components/*": [
+                "components/*"
+            ],
+            "@app/*": [
+                "app/*"
+            ],
+            "@features/*": [
+                "features/*"
+            ],
+            "@queries/*": [
+                "queries/*"
+            ],
+            "@hoc/*": [
+                "hoc/*"
+            ],
+        }
+    },
+    "eslint.validate": [
+        "javascript"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+}
