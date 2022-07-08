@@ -1,0 +1,63 @@
+
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  display: grid;
+  place-content: center;
+ 
+}
+
+.span{
+color: #ffff;
+display: block;
+line-height: 1.1;
+position: relative;
+padding: 0 12px;
+}
+
+.span._spotify::before{
+  background: linear-gradient(90deg, #2fe6af, #1db954);
+  content: "Spotify" ;
+  position: absolute;
+  inset: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animated 9s infinite;
+  animation-delay: 0s;
+}
+
+.span._artist::before{
+  background: linear-gradient(90deg, #FF4D4D, #F9CB28);
+  content: "Artist" ;
+  position: absolute;
+  inset: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animated 9s infinite;
+  animation-delay: 3.33s;
+}
+.span._searcher::before{
+  background: linear-gradient(90deg, #7928CA, #FF0080);
+  content: "Searcher" ;
+  position: absolute;
+  inset: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animated 9s infinite;
+  animation-delay: 6.66s;
+}
+
+
+@keyframes animated {
+  0%, 16.667%, 100% {
+    opacity: 1;
+  }
+
+  33.333%, 83.333% {
+    opacity: 0;
+  }
+}
