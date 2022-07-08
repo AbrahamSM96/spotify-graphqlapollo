@@ -1,44 +1,53 @@
-import Artists from "@components/Artists";
-import { Loading, Spacer } from "@nextui-org/react";
-import { useQueryArtist } from "@queries/artist";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import Artists from '@components/Artists'
+import { Loading, Spacer } from '@nextui-org/react'
+import { useQueryArtist } from '@queries/artist'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 export const FindArtist = () => {
-  const [artist, setArtist] = useState(null);
+  const [artist, setArtist] = useState(null)
 
-  let valueSearch = useSelector((state) => {
+  const valueSearch = useSelector((state) => {
     const {
-      search: { payload },
-    } = state;
-    return payload;
-  });
+      search: { payload }
+    } = state
+    return payload
+  })
 
   const { loading, error, data } = useQueryArtist({
-    variables: { nameToSearch: valueSearch },
-  });
+    variables: { nameToSearch: valueSearch }
+  })
 
   useEffect(() => {
     if (data) {
-      setArtist(data.queryArtists[0]);
+      setArtist(data.queryArtists[0])
     }
-  }, [data]);
+  }, [data])
 
-  if (artist === null) return null;
+  if (artist === null) return null
 
-  if (loading)
+  if (loading) {
     return (
       <>
         <Spacer />
-        <Loading color="secondary" size="xl" type="gradient" />{" "}
+        <Loading color="secondary" size="xl" type="gradient" />{' '}
       </>
-    );
+    )
+  }
+
+  if (error) {
+    return (
+      <>
+        <h1>Sorry, we have an error</h1>
+      </>
+    )
+  }
 
   if (artist) {
     return (
       <>
         <Artists artist={artist} />
       </>
-    );
+    )
   }
-};
+}

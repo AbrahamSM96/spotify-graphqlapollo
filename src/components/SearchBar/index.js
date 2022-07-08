@@ -1,24 +1,24 @@
-import { Input, useInput } from "@nextui-org/react";
-import { useDispatch } from "react-redux";
-import { updateSearch } from "@features/search/searchSlice";
+import { Input, useInput } from '@nextui-org/react'
+import { useDispatch } from 'react-redux'
+import { updateSearch } from '@features/search/searchSlice'
 
-export default function SearchBar() {
-  const dispatch = useDispatch();
-  const input = useInput();
-  const { value = "", setValue } = input;
+export default function SearchBar () {
+  const dispatch = useDispatch()
+  const input = useInput()
+  const { value = '', setValue } = input
 
   // dispatch(updateSearch("value"));
   const handleChange = (event) => {
     const {
-      target: { value = "" },
-    } = event;
-    setValue(value);
-  };
+      target: { value = '' }
+    } = event
+    setValue(value)
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(updateSearch(value));
-  };
+    e.preventDefault()
+    dispatch(updateSearch(value))
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -31,5 +31,5 @@ export default function SearchBar() {
         onChange={handleChange}
       />
     </form>
-  );
+  )
 }
