@@ -1,4 +1,4 @@
-import { gql, useQuery } from "@apollo/client";
+import { gql, useQuery } from '@apollo/client'
 
 export const QUERY_GET_ARTIST = gql`
   query getArtistByName($nameToSearch: String!) {
@@ -14,8 +14,8 @@ export const QUERY_GET_ARTIST = gql`
       }
     }
   }
-`;
+`
 
-export function useQueryArtist(options) {
-  return useQuery(QUERY_GET_ARTIST, options);
+export function useQueryArtist (options) {
+  return useQuery(QUERY_GET_ARTIST, options)
 }
